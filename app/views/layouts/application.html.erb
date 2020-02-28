@@ -40,7 +40,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
               <% Category.all.each do |c| %>
-                <li><%= link_to c.name, books_path(category: c.name) ,class: "link"%></li>
+                <li class=<%= "active" if params[:category]==c.name %>><%= link_to c.name, books_path(category: c.name) ,class: "link"%></li>
               <% end %>
               </ul>
             </li>

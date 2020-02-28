@@ -1,5 +1,14 @@
 <h1>List Books</h1>
-<% @books.each do |book| %>
-    <h2><%= link_to book.title,book_path(book) %></h2>
+<h5><%=params[:category]%></h5>
+<% if @books.count== 0 %>
+        <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h6>There are no books currently in this category.</h6>
+    </div>
+<% else %>
+    <% @books.each do |book| %>
+        <h2><%= link_to book.title,book_path(book) %></h2>
+    <% end %>
 <% end %>
+
 <%= link_to "new",new_book_path %>
