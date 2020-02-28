@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     before_action :find_book , only: [:show,:edit,:destroy,:update]
     def index
         @books=Book.all.order("created_at DESC")
+        
     end
 
     def show
@@ -12,11 +13,12 @@ class BooksController < ApplicationController
 
 
     def new
-        @book=Book.new
+        @book=current_user.books.build
+        @categories=Category.all.map{ |c| [c.name,c.id]}
     end
 
     def create
-        @book=Book.new(book_params)
+        @book=current_user.books.build(book_params)
         if @book.save
             redirect_to root_path
         else
