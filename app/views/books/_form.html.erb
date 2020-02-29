@@ -4,6 +4,7 @@
 
 <%= simple_form_for @book do |f| %>
     <%= select_tag(:category_id,options_for_select(@categories),:prompt=>"Select and category",class:"form-control") %>
+    <%= f.file_field :book_img %>
     <%= f.input :title ,label: "Title",class:"form-control"%>
     <%= f.input :description ,class:"form-control"%>
     <%= f.input :author ,class:"form-control"%>
