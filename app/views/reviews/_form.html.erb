@@ -1,0 +1,6 @@
+<%= simple_form_for([@book,@book.reviews.build]) do |f| %>
+    <%= f.input :raiting ,class:'form-control'%>
+    <%= f.input :comment ,class:'form-control'%>
+    <%= f.button :submit ,class:'btn btn-primary'%>
+
+<% end %>
