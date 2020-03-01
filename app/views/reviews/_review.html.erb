@@ -1,2 +1,4 @@
 <h5>Raiting: <%= review.raiting %> </h5>
 <h5>Comment: <%= review.comment %> </h5>
+<%= link_to 'Edit', edit_book_review_path(review.book,review) %>
+<%= link_to 'Delete', book_review_path(review.book,review) ,method: :delete,data:{confirm: "Are you sure ?"}%>

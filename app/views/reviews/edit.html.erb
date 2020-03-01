@@ -1,0 +1,8 @@
+<h5>Edit review</h5>
+
+<%= simple_form_for([@book,@review]) do |f| %>
+    <%= f.input :raiting ,class:'form-control'%>
+    <%= f.input :comment ,class:'form-control'%>
+    <%= f.button :submit ,class:'btn btn-primary'%>
+
+<% end %>
