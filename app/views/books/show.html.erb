@@ -7,6 +7,9 @@
     <div class="col-md-8">
         <h2><%=@book.title%></h2>
         <h3><%=@book.author%></h3>
+        <h3>Average raiting</h3>
+        <div class="average-review-raiting" data-score="<%= @average_review %>"> </div>
+        <span>Based on <%= @book.reviews.count %> reviews  </span>
         <h4><%= @book.category.name %></h4>
         <p><%=@book.description%></p>
     </div>
@@ -25,3 +28,22 @@
     <%= link_to 'Edit' ,edit_book_path(@book) ,class:"btn btn-warning"%>
     <%= link_to "Delete" ,book_path(@book) ,method: :delete,data:{confirm: "Are you sure ?"},class:"btn btn-danger"%>
 <% end %>
+
+<script>
+    $(".review-raiting").raty({
+        readOnly:true,
+        score:function(){
+            return $(this).attr("data-score");
+        },
+        path:"/assets/"
+    })
+
+    
+        $(".average-review-raiting").raty({
+        readOnly:true,
+        score:function(){
+            return $(this).attr("data-score");
+        },
+        path:"/assets/"
+    })
+</script>
