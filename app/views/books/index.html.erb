@@ -9,12 +9,17 @@
         <div class="row">
             <% @books.each do |book| %>
                 <div class="col-md-4">
-                    <a href="/books/<%= book.id%>">
+                <div class="panel panel-default" style="width:233px;">
+                <div class="panel-body">
+                     <a href="/books/<%= book.id%>">
                         <%= image_tag book.book_img.url(:book_index) %>
                     </a>
+                </div>
+                </div>
+                  
                 </div>
             <% end %>
         </div>
 <% end %>
 
-<%= link_to "new",new_book_path %>
+<%= link_to "New book",new_book_path ,class:"btn btn-success" %>
